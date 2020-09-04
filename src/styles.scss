@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+.main{
+  position: relative;
+  height: 100vh;
+  &:before{
+    position: absolute;
+    content: "";
+    top: 0; left: 0;
+    width: 100%;
+    //background-image: url("assets/img/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 100%;
+    filter: brightness(30%);
+    //filter: grayscale(50%) brightness(50%);
+  }
+  .container{
+    position: relative;
+  }
+}

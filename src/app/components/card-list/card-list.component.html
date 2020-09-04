@@ -1,0 +1,31 @@
+<div class="md:flex bg-white p-8 shadow-md rounded border mb-4" *ngIf="!superhero.length">
+  <div class="uppercase tracking-wide text-sm text-center text-indigo-600 font-bold">
+    <p class="text-indigo-800">No Super hero</p>
+  </div>
+</div>
+<div class="md:flex bg-white p-8 shadow-md rounded border mb-4" *ngFor="let hero of superhero">
+  <div class="md:flex-shrink-0">
+    <img class="rounded-lg md:w-56" [src]="hero.image.url" [alt]="hero.name">
+  </div>
+  <div class="mt-4 md:mt-0 md:ml-6">
+    <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
+      {{hero.name}}:
+      {{hero.biography['full-name']}}
+    </div>
+    <p class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">
+      Place of birth: {{hero.biography['place-of-birth']}}
+    </p>
+    <p class="mt-4 text-gray-600">
+      <span class="font-bold">Group affiliation:</span> {{hero.connections['group-affiliation']}}
+    </p>
+    <p class="mt-2 text-gray-600">
+      <span class="font-bold">Relatives:</span> {{hero.connections['relatives']}}
+    </p>
+    <p class="mt-4 text-indigo-600">
+      <span class="font-bold">Occupation:</span>  {{hero.work['occupation']}}
+    </p>
+    <p class="mt-2 text-indigo-600">
+      <span class="font-bold">Base:</span> {{hero.work['base']}}
+    </p>
+  </div>
+</div>
