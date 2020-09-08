@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "tailwind": "./node_modules/.bin/tailwind  build src/tailwind-build.css -c ./tailwind.config.js -o ./src/styles.css",
-    "prestart": "npm run tailwind"
+    "prestart": "npm run tailwind",
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~9.0.5",
     "@angular/router": "~9.0.5",
     "angular-font-awesome": "^3.1.2",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "ng-tailwindcss": "^2.3.1",
     "rxjs": "~6.5.4",
