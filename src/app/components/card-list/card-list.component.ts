@@ -10,9 +10,15 @@ export class CardListComponent implements OnInit {
   @Input() superhero;
   @Input() messageNoHero;
 
+  listView: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleView(){
+    this.listView = !this.listView;
   }
 
 }

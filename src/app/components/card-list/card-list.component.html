@@ -4,38 +4,48 @@
   </div>
 </div>
 
-<div class="md:flex bg-white  p-8 shadow-md rounded border mb-4 " *ngFor="let hero of superhero"
-[ngClass]="{
-'bg-black': hero.biography['alignment'] == 'bad',
-'bg-blue-200': hero.biography['alignment'] == 'neutral',
-'bg-white': hero.biography['alignment'] == 'good'
-}">
-  <div class="md:flex-shrink-0">
-    <img class="rounded-lg md:w-56" [src]="hero.image.url" [alt]="hero.name">
-  </div>
-  <div class="mt-4 md:mt-0 md:ml-6">
-    <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
-      {{hero.name}}:
-      {{hero.biography['full-name']}}
-    </div>
-    <p class="block mt-1 text-lg leading-tight font-semibold  hover:underline"
+<div class="mb-4 text-right" *ngIf="superhero.length">
+  <i class="fa fa-2x mr-2 mb-2" [ngClass]="{'fa-bars': !listView, 'fa-th ' : listView}" (click)="toggleView()"></i>
+  <hr>
+</div>
+
+<div class="" [ngClass]="{'grid grid-cols-3 gap-4': !listView}">
+  <div class=" bg-white p-8 shadow-md rounded border mb-4 "  *ngFor="let hero of superhero"
        [ngClass]="{
+       'md:flex': listView,
+        'bg-black': hero.biography['alignment'] == 'bad',
+        'bg-blue-200': hero.biography['alignment'] == 'neutral',
+        'bg-white': hero.biography['alignment'] == 'good'
+        }">
+    <div class="md:flex-shrink-0">
+      <img class="rounded-lg " [ngClass]="{'md:w-56': listView, 'w-full mb-5' : !listView}" [src]="hero.image.url" [alt]="hero.name">
+    </div>
+    <div class="mt-4 md:mt-0 md:ml-6">
+      <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
+        {{hero.name}}:
+        {{hero.biography['full-name']}}
+      </div>
+      <p class="block mt-1 text-lg leading-tight font-semibold  hover:underline"
+         [ngClass]="{
        'text-white': hero.biography['alignment'] == 'bad',
        'text-gray-900': hero.biography['alignment'] == 'neutral' || hero.biography['alignment'] == 'good'
        }">
-      Place of birth: {{hero.biography['place-of-birth']}}
-    </p>
-    <p class="mt-4 text-gray-600">
-      <span class="font-bold">Group affiliation:</span> {{hero.connections['group-affiliation']}}
-    </p>
-    <p class="mt-2 text-gray-600">
-      <span class="font-bold">Relatives:</span> {{hero.connections['relatives']}}
-    </p>
-    <p class="mt-4 text-indigo-600">
-      <span class="font-bold">Occupation:</span>  {{hero.work['occupation']}}
-    </p>
-    <p class="mt-2 text-indigo-600">
-      <span class="font-bold">Base:</span> {{hero.work['base']}}
-    </p>
+        Place of birth: {{hero.biography['place-of-birth']}}
+      </p>
+      <p class="mt-4 text-gray-600">
+        <span class="font-bold">Group affiliation:</span> {{hero.connections['group-affiliation']}}
+      </p>
+      <p class="mt-2 text-gray-600">
+        <span class="font-bold">Relatives:</span> {{hero.connections['relatives']}}
+      </p>
+      <p class="mt-4 text-indigo-600">
+        <span class="font-bold">Occupation:</span>  {{hero.work['occupation']}}
+      </p>
+      <p class="mt-2 text-indigo-600">
+        <span class="font-bold">Base:</span> {{hero.work['base']}}
+      </p>
+    </div>
   </div>
 </div>
+
+
